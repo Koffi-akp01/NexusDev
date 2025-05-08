@@ -30,6 +30,17 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // Remplacez "YOUR_PUBLIC_KEY" par votre clé publique EmailJS
+        emailjs.init("g8swoZPoLnmSHhoJC");
+    })();
+</script>
 </head>
 
 <body>
@@ -127,84 +138,88 @@
 
 
     <!-- Contact Start -->
-    <div class="pt-6 pb-6">
-        <div class="container-fluid appoinment py-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container pt-5">
-                <div class="row gy-5 gx-0">
-                    <div class="col-lg-6 pe-lg-5 wow fadeIn" data-wow-delay="0.3s">
-                        <h1 class="display-6 text-uppercase text-white mb-4">Des questions ? N'hésitez pas à nous contacter.
-                        </h1>
-                        <div class="d-flex align-items-start wow fadeIn" data-wow-delay="0.5s">
-                            <div class="btn-lg-square bg-white">
-                                <i class="bi bi-envelope-at text-dark fs-3"></i>
+    <form id="contactForm" onsubmit="return sendMail(event)">
+        <div class="pt-6 pb-6">
+            <div class="container-fluid appoinment py-5 wow fadeIn" data-wow-delay="0.1s">
+                <div class="container pt-5">
+                    <div class="row gy-5 gx-0">
+                        <div class="col-lg-6 pe-lg-5 wow fadeIn" data-wow-delay="0.3s">
+                            <h1 class="display-6 text-uppercase text-white mb-4">Des questions ? N'hésitez pas à nous contacter.
+                            </h1>
+                            <div class="d-flex align-items-start wow fadeIn" data-wow-delay="0.5s">
+                                <div class="btn-lg-square bg-white">
+                                    <i class="bi bi-envelope-at text-dark fs-3"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="text-white text-uppercase">Envoyez-nous un mail</h6>
+                                    <span class="text-white">kebacadev@gmail.com</span>
+                                </div>
                             </div>
-                            <div class="ms-3">
-                                <h6 class="text-white text-uppercase">Envoyez-nous un mail</h6>
-                                <span class="text-white">kebacadev@gmail.com</span>
+                            <hr class="bg-body">
+                            <div class="d-flex align-items-start wow fadeIn" data-wow-delay="0.6s">
+                                <div class="btn-lg-square bg-white">
+                                    <i class="bi bi-telephone text-dark fs-3"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="text-white text-uppercase">Appelez Nous</h6>
+                                    <span class="text-white">+228 91 90 0084</span>
+                                </div>
                             </div>
                         </div>
-                        <hr class="bg-body">
-                        <div class="d-flex align-items-start wow fadeIn" data-wow-delay="0.6s">
-                            <div class="btn-lg-square bg-white">
-                                <i class="bi bi-telephone text-dark fs-3"></i>
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="text-white text-uppercase">Appelez Nous</h6>
-                                <span class="text-white">+228 91 90 0084</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-n5 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="bg-white p-5">
-                            <h2 class="text-uppercase mb-4">Contactez Nous</h2>
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-light" id="name" placeholder="Your Name">
-                                        <label for="name">Votre Nom</label>
+                        <div class="col-lg-6 mb-n5 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="bg-white p-5">
+                                <h2 class="text-uppercase mb-4">Contactez Nous</h2>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0 bg-light" id="name" placeholder="Your Name">
+                                            <label for="name">Votre Nom</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-light" id="mail" placeholder="Your Email">
-                                        <label for="mail">Votre Mail</label>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control border-0 bg-light" id="mail" placeholder="Your Email">
+                                            <label for="mail">Votre Mail</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-light" id="mobile" placeholder="Your Mobile">
-                                        <label for="mobile">Votre Teléphone</label>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0 bg-light" id="mobile" placeholder="Your Mobile">
+                                            <label for="mobile">Votre Teléphone</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-light" id="subject" placeholder="Subject">
-                                        <label for="subject">Sujet</label>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0 bg-light" id="subject" placeholder="Subject">
+                                            <label for="subject">Sujet</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
-                                            style="height: 130px"></textarea>
-                                        <label for="message">Message</label>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
+                                                style="height: 130px"></textarea>
+                                            <label for="message">Message</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Soumettre Maintenant</button>
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Soumettre Maintenant</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="container-fluid px-0 wow fadeInUp" data-wow-delay="0.5s">
+                <iframe class="w-100 h-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.879022184927!2d1.2071340749952163!3d6.128745993870599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10215828a0f8cfad%3A0xd1d3d003e391d703!2sLom%C3%A9%2C%20Togo!5e0!3m2!1sfr!2stg!4v1714911390000!5m2!1sfr!2stg"
+                frameborder="0" style="min-height: 500px; border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+            </div>
         </div>
-        <div class="container-fluid px-0 wow fadeInUp" data-wow-delay="0.5s">
-            <iframe class="w-100 h-100"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.879022184927!2d1.2071340749952163!3d6.128745993870599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10215828a0f8cfad%3A0xd1d3d003e391d703!2sLom%C3%A9%2C%20Togo!5e0!3m2!1sfr!2stg!4v1714911390000!5m2!1sfr!2stg"
-            frameborder="0" style="min-height: 500px; border:0;" allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
-        </div>
-    </div>
+
+     </form>
+    
     <!-- Contact End -->
 
 
@@ -330,6 +345,72 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        function sendMail(event) {
+            event.preventDefault();
+    
+            // Récupérer les valeurs du formulaire
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('mail').value;
+            const phone = document.getElementById('mobile').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+    
+            // Vérification des champs requis
+            if (!name || !email || !message) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Attention',
+                    text: 'Veuillez remplir tous les champs obligatoires (nom, email et message)',
+                    confirmButtonColor: '#0d6efd'
+                });
+                return false;
+            }
+    
+            // Paramètres pour EmailJS
+            const templateParams = {
+                to_name: "KEBACA-DEV",
+                from_name: name,
+                from_email: email,
+                from_phone: phone,
+                subject: subject,
+                message: message
+            };
+    
+            // Afficher l'état de chargement
+            Swal.fire({
+                title: 'Envoi en cours...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+    
+            // Envoi du mail
+            emailjs.send("service_wgodzlg", "template_intojpb", templateParams)
+                .then(function(response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Message envoyé!',
+                        text: 'Nous vous répondrons dans les plus brefs délais.',
+                        confirmButtonColor: '#0d6efd'
+                    });
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(function(error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur',
+                        text: 'Une erreur est survenue. Veuillez réessayer.',
+                        confirmButtonColor: '#dc3545'
+                    });
+                    console.error("Erreur:", error);
+                });
+    
+            return false;
+        }
+    </script>
+  
 </body>
 
 </html>
