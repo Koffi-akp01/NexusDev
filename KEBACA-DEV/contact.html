@@ -1,3 +1,27 @@
+    <script>
+        const form = document.getElementById('contact-form');
+        const emailInput = document.getElementById('email');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "kebaka.dev@gmail.com",
+                Password: "P@ssw0rd",
+                To: 'kebaka.dev@gmail.com',
+                From: emailInput.value,
+                Subject: subject,
+                Body: message
+            }).then(
+                message => alert("Message envoy  avec succ s !")
+            );
+        })
+    </script>
+
 <!DOCTYPE html>
 <html lang="fr">
 
